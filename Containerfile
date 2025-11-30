@@ -1,9 +1,10 @@
+ARG BASE_IMAGE="quay.io/fedora-ostree-desktops/cosmic-atomic"
+ARG FEDORA_MAJOR_VERSION="43"
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
-
 # Base Image
-FROM ghcr.io/ublue-os/base-main:latest
+FROM ${BASE_IMAGE}:${FEDORA_MAJOR_VERSION}
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
